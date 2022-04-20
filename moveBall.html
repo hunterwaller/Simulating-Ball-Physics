@@ -16,6 +16,7 @@ var positionX = 0;
 var positionY = 0;
 var ball = document.getElementById('ball');
 
+//Added function to change the color everytime the ball contacts the barrier
 function changeColor() {
   var r = Math.floor(255*(Math.random()));
     var g = Math.floor(255*(Math.random()));
@@ -24,11 +25,9 @@ function changeColor() {
     ball.style.background = color;
 }
 
-
-// YOUR CODE 
-// ----------------
+//Main Function
 function moveBall() {
-  /*Following if block checks location and will flip values clearly stated
+  /*Following if block checks location and will flip values
   This gives the illusion of a barrier*/
   if (positionX > 500 || positionX < 0) {
     velocityX = velocityX * -1;
