@@ -1,0 +1,54 @@
+<div id="ball" style="
+  z-index:5;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:green"></div>
+
+<script>
+
+var velocityX = 5;
+var velocityY = 3;
+var positionX = 0;
+var positionY = 0;
+var ball = document.getElementById('ball');
+
+function changeColor() {
+  var r = Math.floor(255*(Math.random()));
+    var g = Math.floor(255*(Math.random()));
+    var b = Math.floor(255*(Math.random()));        
+    var color = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    ball.style.background = color;
+}
+
+
+// YOUR CODE 
+// ----------------
+function moveBall() {
+  /*Following if block checks location and will flip values clearly stated
+  This gives the illusion of a barrier*/
+  if (positionX > 500 || positionX < 0) {
+    velocityX = velocityX * -1;
+     changeColor();
+  }
+  if (positionY > 500 || positionY < 0) {
+    velocityY = velocityY * -1;
+    changeColor();
+  }
+  
+  //Moves the ball across the main page.
+  positionX = positionX + velocityX
+  positionY = positionY + velocityY
+  
+  //Lists current pos in console, moves the ball div
+  console.log(`Current x coord:  ${positionX}  Current y coord: ${positionY}`)
+  ball.style.left = positionX
+  ball.style.top = positionY
+}
+
+setInterval(moveBall, 10)
+
+</script>
